@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -293,26 +294,48 @@
 
         /* Itinerary */
         .itinerary-section {
-            padding: 20px;
+            padding: 30px 20px;
         }
 
         .itinerary-item {
             display: flex;
             align-items: center;
             gap: 16px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+
+        .itinerary-item:nth-child(odd) {
+            border-left-color: #FF6FB5;
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFFFFF 100%);
+        }
+
+        .itinerary-item:nth-child(even) {
+            border-left-color: #4A90E2;
+            background: linear-gradient(135deg, #F0F8FF 0%, #FFFFFF 100%);
+        }
+
+        .itinerary-item:nth-child(3n) {
+            border-left-color: #FF9478;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 100%);
+        }
+
+        .itinerary-item:nth-child(4n) {
+            border-left-color: #2ECC71;
+            background: linear-gradient(135deg, #F0FFF0 0%, #FFFFFF 100%);
         }
 
         .itinerary-item.current {
             border: 2px solid;
             transform: scale(1.02);
             box-shadow: 0 8px 25px rgba(255,111,181,0.2);
+            border-left-width: 6px;
         }
 
         .time-column {
@@ -588,52 +611,52 @@
                 <div class="modal-title">Beach Tips & Safety</div>
                 <div class="modal-subtitle">Essential info for your Figure Eight Island trip</div>
                 
-                <div style="text-align: left; margin-top: 20px;">
-                    <div style="margin-bottom: 25px;">
-                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">🏖️ Beach Safety</h3>
-                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
-                            <li>Always swim with a buddy</li>
-                            <li>Check rip current conditions before entering water</li>
-                            <li>Stay hydrated - bring plenty of water</li>
-                            <li>Apply sunscreen every 2 hours</li>
-                            <li>Watch for jellyfish and stingrays</li>
-                            <li>Know your limits in the water</li>
-                        </ul>
+                <div style="text-align: left; margin-top: 30px;">
+                    <div style="margin-bottom: 40px; padding: 20px; background: #F8F9FA; border-radius: 15px; border-left: 4px solid #FF6FB5;">
+                        <h3 style="color: #2C3E50; margin-bottom: 15px; font-family: 'Times New Roman', serif; font-size: 18px;">🏖️ Beach Safety</h3>
+                        <div style="color: #7F8C8D; line-height: 1.8; font-size: 15px;">
+                            <div style="margin-bottom: 8px;">• Always swim with a buddy</div>
+                            <div style="margin-bottom: 8px;">• Check rip current conditions</div>
+                            <div style="margin-bottom: 8px;">• Stay hydrated - bring water</div>
+                            <div style="margin-bottom: 8px;">• Apply sunscreen every 2 hours</div>
+                            <div style="margin-bottom: 8px;">• Watch for jellyfish and stingrays</div>
+                            <div>• Know your limits in the water</div>
+                        </div>
                     </div>
                     
-                    <div style="margin-bottom: 25px;">
-                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">🌊 Figure Eight Island Fun Facts</h3>
-                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
-                            <li>Named for its figure-eight shape</li>
-                            <li>Home to nesting sea turtles (May-October)</li>
-                            <li>Known for pristine, uncrowded beaches</li>
-                            <li>Perfect for shell collecting and beachcombing</li>
-                            <li>Great spot for dolphin watching</li>
-                            <li>Famous for its beautiful sunrises and sunsets</li>
-                        </ul>
+                    <div style="margin-bottom: 40px; padding: 20px; background: #F0F8FF; border-radius: 15px; border-left: 4px solid #4A90E2;">
+                        <h3 style="color: #2C3E50; margin-bottom: 15px; font-family: 'Times New Roman', serif; font-size: 18px;">🌊 Figure Eight Island Fun Facts</h3>
+                        <div style="color: #7F8C8D; line-height: 1.8; font-size: 15px;">
+                            <div style="margin-bottom: 8px;">• Named for its figure-eight shape</div>
+                            <div style="margin-bottom: 8px;">• Home to nesting sea turtles</div>
+                            <div style="margin-bottom: 8px;">• Known for pristine beaches</div>
+                            <div style="margin-bottom: 8px;">• Perfect for shell collecting</div>
+                            <div style="margin-bottom: 8px;">• Great dolphin watching spot</div>
+                            <div>• Famous for beautiful sunsets</div>
+                        </div>
                     </div>
                     
-                    <div style="margin-bottom: 25px;">
-                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">📱 Beach Essentials</h3>
-                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
-                            <li>High SPF sunscreen (30+ recommended)</li>
-                            <li>Beach umbrella or tent for shade</li>
-                            <li>Plenty of water and snacks</li>
-                            <li>Beach towels and chairs</li>
-                            <li>Waterproof phone case</li>
-                            <li>First aid kit</li>
-                        </ul>
+                    <div style="margin-bottom: 40px; padding: 20px; background: #FFF5F7; border-radius: 15px; border-left: 4px solid #FF9478;">
+                        <h3 style="color: #2C3E50; margin-bottom: 15px; font-family: 'Times New Roman', serif; font-size: 18px;">📱 Beach Essentials</h3>
+                        <div style="color: #7F8C8D; line-height: 1.8; font-size: 15px;">
+                            <div style="margin-bottom: 8px;">• High SPF sunscreen (30+)</div>
+                            <div style="margin-bottom: 8px;">• Beach umbrella for shade</div>
+                            <div style="margin-bottom: 8px;">• Plenty of water and snacks</div>
+                            <div style="margin-bottom: 8px;">• Beach towels and chairs</div>
+                            <div style="margin-bottom: 8px;">• Waterproof phone case</div>
+                            <div>• First aid kit</div>
+                        </div>
                     </div>
                     
-                    <div style="margin-bottom: 25px;">
-                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">🐢 Sea Turtle Tips</h3>
-                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
-                            <li>Never touch or disturb sea turtles</li>
-                            <li>Keep lights off at night (turtles are sensitive)</li>
-                            <li>Fill in holes you dig in the sand</li>
-                            <li>Don't leave beach chairs or umbrellas overnight</li>
-                            <li>Report any injured turtles to local authorities</li>
-                        </ul>
+                    <div style="margin-bottom: 40px; padding: 20px; background: #F0FFF0; border-radius: 15px; border-left: 4px solid #2ECC71;">
+                        <h3 style="color: #2C3E50; margin-bottom: 15px; font-family: 'Times New Roman', serif; font-size: 18px;">🐢 Sea Turtle Tips</h3>
+                        <div style="color: #7F8C8D; line-height: 1.8; font-size: 15px;">
+                            <div style="margin-bottom: 8px;">• Never touch sea turtles</div>
+                            <div style="margin-bottom: 8px;">• Keep lights off at night</div>
+                            <div style="margin-bottom: 8px;">• Fill in holes you dig</div>
+                            <div style="margin-bottom: 8px;">• Don't leave items overnight</div>
+                            <div>• Report injured turtles</div>
+                        </div>
                     </div>
                 </div>
             </div>
