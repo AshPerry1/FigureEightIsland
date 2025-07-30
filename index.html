@@ -82,6 +82,73 @@
             letter-spacing: 3px;
             margin-bottom: 16px;
             font-family: 'Times New Roman', serif;
+            animation: welcomeSlide 1.5s ease-out 0.5s both;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: #2C3E50;
+            letter-spacing: 6px;
+            margin-bottom: 16px;
+            font-family: 'Times New Roman', serif;
+            position: relative;
+            overflow: hidden;
+            animation: titleBounce 1.2s ease-out 1s both;
+        }
+
+        .trip-type {
+            font-size: 12px;
+            font-weight: 500;
+            color: #7F8C8D;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: -apple-system, sans-serif;
+            animation: exclamationDrop 1s ease-out 2s both;
+            position: relative;
+        }
+
+        @keyframes welcomeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes titleBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            50% {
+                transform: scale(1.1) translateY(-5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes exclamationDrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) rotate(-10deg);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(10px) rotate(5deg);
+            }
+            80% {
+                transform: translateY(-3px) rotate(-2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
         }
 
         .accent-line {
@@ -213,6 +280,11 @@
             font-family: 'Times New Roman', serif;
         }
 
+        .day-button:hover {
+            border-color: #FF6FB5;
+            background: #FFF5F7;
+        }
+
         .day-button.active {
             color: white;
             border-color: #FF6FB5;
@@ -293,24 +365,28 @@
         }
 
         /* Calendar Export */
-        .calendar-button {
+        .plus-button {
             position: fixed;
             bottom: 30px;
             right: 30px;
             color: white;
             border: none;
-            padding: 16px 24px;
-            border-radius: 30px;
-            font-size: 16px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 8px 25px rgba(255,111,181,0.3);
             transition: all 0.3s ease;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .calendar-button:hover {
-            transform: translateY(-2px);
+        .plus-button:hover {
+            transform: translateY(-2px) scale(1.1);
         }
 
         /* Modal */
@@ -418,7 +494,7 @@
             <div class="hero-title">FIGURE EIGHT</div>
             <div class="hero-title">ISLAND</div>
             <div class="accent-line"></div>
-            <div class="trip-type">Girls' Beach Trip</div>
+            <div class="trip-type">Girls' Beach Trip!</div>
         </div>
 
         <!-- Countdown Timer -->
@@ -458,10 +534,30 @@
             <!-- Itinerary items will be populated by JavaScript -->
         </div>
 
-        <!-- Calendar Export Button -->
-        <button class="calendar-button" onclick="showCalendarModal()">
-            📅 Add to Calendar
+        <!-- Plus Button -->
+        <button class="plus-button" onclick="showPlusModal()">
+            +
         </button>
+
+        <!-- Plus Modal -->
+        <div class="modal" id="plusModal">
+            <div class="modal-content">
+                <button class="close-button" onclick="hidePlusModal()">×</button>
+                <div class="modal-title">Quick Actions</div>
+                <div class="modal-subtitle">Choose what you'd like to do</div>
+                
+                <a href="#" class="calendar-option apple" onclick="showCalendarModal()">
+                    📅 Add to Calendar
+                </a>
+                <a href="#" class="calendar-option google" onclick="showBeachTips()">
+                    🌊 Beach Tips & Safety
+                </a>
+                
+                <div style="margin-top: 20px; font-size: 12px; color: #7F8C8D;">
+                    <div>Essential info for your beach trip!</div>
+                </div>
+            </div>
+        </div>
 
         <!-- Calendar Modal -->
         <div class="modal" id="calendarModal">
@@ -481,6 +577,64 @@
                     <div>📅 Events span August 5-9, 2025</div>
                     <div>⏰ Each activity is set to 1 hour duration</div>
                     <div>📍 Location set to Figure Eight Island</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beach Tips Modal -->
+        <div class="modal" id="beachTipsModal">
+            <div class="modal-content" style="max-height: 80vh; overflow-y: auto;">
+                <button class="close-button" onclick="hideBeachTips()">×</button>
+                <div class="modal-title">Beach Tips & Safety</div>
+                <div class="modal-subtitle">Essential info for your Figure Eight Island trip</div>
+                
+                <div style="text-align: left; margin-top: 20px;">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">🏖️ Beach Safety</h3>
+                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
+                            <li>Always swim with a buddy</li>
+                            <li>Check rip current conditions before entering water</li>
+                            <li>Stay hydrated - bring plenty of water</li>
+                            <li>Apply sunscreen every 2 hours</li>
+                            <li>Watch for jellyfish and stingrays</li>
+                            <li>Know your limits in the water</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">🌊 Figure Eight Island Fun Facts</h3>
+                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
+                            <li>Named for its figure-eight shape</li>
+                            <li>Home to nesting sea turtles (May-October)</li>
+                            <li>Known for pristine, uncrowded beaches</li>
+                            <li>Perfect for shell collecting and beachcombing</li>
+                            <li>Great spot for dolphin watching</li>
+                            <li>Famous for its beautiful sunrises and sunsets</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">📱 Beach Essentials</h3>
+                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
+                            <li>High SPF sunscreen (30+ recommended)</li>
+                            <li>Beach umbrella or tent for shade</li>
+                            <li>Plenty of water and snacks</li>
+                            <li>Beach towels and chairs</li>
+                            <li>Waterproof phone case</li>
+                            <li>First aid kit</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #2C3E50; margin-bottom: 10px; font-family: 'Times New Roman', serif;">🐢 Sea Turtle Tips</h3>
+                        <ul style="color: #7F8C8D; line-height: 1.6; font-size: 14px;">
+                            <li>Never touch or disturb sea turtles</li>
+                            <li>Keep lights off at night (turtles are sensitive)</li>
+                            <li>Fill in holes you dig in the sand</li>
+                            <li>Don't leave beach chairs or umbrellas overnight</li>
+                            <li>Report any injured turtles to local authorities</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -654,10 +808,10 @@
                 box.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
             });
             
-            // Update calendar button
-            const calendarBtn = document.querySelector('.calendar-button');
-            if (calendarBtn) {
-                calendarBtn.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
+            // Update plus button
+            const plusBtn = document.querySelector('.plus-button');
+            if (plusBtn) {
+                plusBtn.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
             }
             
             // Update accent line
@@ -670,7 +824,15 @@
             const activeDayBtn = document.querySelector('.day-button.active');
             if (activeDayBtn) {
                 activeDayBtn.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
+                activeDayBtn.style.color = 'white';
             }
+            
+            // Update inactive day buttons
+            document.querySelectorAll('.day-button:not(.active)').forEach(btn => {
+                btn.style.background = 'white';
+                btn.style.color = '#7F8C8D';
+                btn.style.borderColor = '#E8F4FD';
+            });
             
             // Update current activity border
             const currentActivity = document.querySelector('.itinerary-item.current');
@@ -792,13 +954,37 @@
             }
         }
 
+        // Plus modal functions
+        function showPlusModal() {
+            document.getElementById('plusModal').style.display = 'block';
+        }
+
+        function hidePlusModal() {
+            document.getElementById('plusModal').style.display = 'none';
+        }
+
         // Calendar functions
         function showCalendarModal() {
             document.getElementById('calendarModal').style.display = 'block';
+            hidePlusModal();
         }
 
         function hideCalendarModal() {
             document.getElementById('calendarModal').style.display = 'none';
+        }
+
+        function showBeachTips() {
+            document.getElementById('beachTipsModal').style.display = 'block';
+            hidePlusModal();
+        }
+
+        function hideBeachTips() {
+            document.getElementById('beachTipsModal').style.display = 'none';
+        }
+
+        function showComingSoon() {
+            alert('Coming soon! 🌊✨');
+            hidePlusModal();
         }
 
         function exportToAppleCalendar() {
