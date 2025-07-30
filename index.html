@@ -120,6 +120,26 @@
             font-family: 'Times New Roman', serif;
         }
 
+        .countdown-title.wave-text {
+            animation: wave-movement 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes wave-movement {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-2px) rotate(0.5deg);
+            }
+            50% {
+                transform: translateY(1px) rotate(-0.5deg);
+            }
+            75% {
+                transform: translateY(-1px) rotate(0.3deg);
+            }
+        }
+
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -381,15 +401,15 @@
         <!-- Hero Section -->
         <div class="hero-section">
             <div class="hero-subtitle">Welcome to</div>
-            <div class="hero-title wave-text">FIGURE EIGHT</div>
-            <div class="hero-title wave-text">ISLAND</div>
+            <div class="hero-title">FIGURE EIGHT</div>
+            <div class="hero-title">ISLAND</div>
             <div class="accent-line"></div>
             <div class="trip-type">Girls' Beach Trip</div>
         </div>
 
         <!-- Countdown Timer -->
         <div class="countdown-section">
-            <div class="countdown-title">COUNTDOWN TO PARADISE</div>
+            <div class="countdown-title wave-text">COUNTDOWN TO PARADISE</div>
             <div class="countdown-grid">
                 <div class="countdown-box">
                     <span class="countdown-number" id="days">--</span>
