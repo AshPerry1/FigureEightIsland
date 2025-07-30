@@ -120,23 +120,43 @@
             font-family: 'Times New Roman', serif;
         }
 
-        .countdown-title.wave-text {
-            animation: wave-movement 3s ease-in-out infinite;
+        .countdown-box {
+            background: linear-gradient(135deg, #FF6FB5, #FF9478);
+            color: white;
+            padding: 12px 8px;
+            border-radius: 12px;
+            text-align: center;
+            animation: wave-box 3s ease-in-out infinite;
             position: relative;
+            overflow: hidden;
         }
 
-        @keyframes wave-movement {
+        .countdown-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: wave-shine 2s ease-in-out infinite;
+        }
+
+        @keyframes wave-box {
             0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-2px) rotate(0.5deg);
+                transform: translateY(0px);
             }
             50% {
-                transform: translateY(1px) rotate(-0.5deg);
+                transform: translateY(-3px);
             }
-            75% {
-                transform: translateY(-1px) rotate(0.3deg);
+        }
+
+        @keyframes wave-shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
             }
         }
 
@@ -409,7 +429,7 @@
 
         <!-- Countdown Timer -->
         <div class="countdown-section">
-            <div class="countdown-title wave-text">COUNTDOWN TO PARADISE</div>
+            <div class="countdown-title">COUNTDOWN TO PARADISE</div>
             <div class="countdown-grid">
                 <div class="countdown-box">
                     <span class="countdown-number" id="days">--</span>
