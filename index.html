@@ -87,7 +87,6 @@
         .accent-line {
             width: 70px;
             height: 2px;
-            background: linear-gradient(90deg, #FF6FB5, #FF9478);
             margin: 6px auto 12px;
         }
 
@@ -121,7 +120,6 @@
         }
 
         .countdown-box {
-            background: linear-gradient(135deg, #FF6FB5, #FF9478);
             color: white;
             padding: 12px 8px;
             border-radius: 12px;
@@ -216,7 +214,6 @@
         }
 
         .day-button.active {
-            background: linear-gradient(135deg, #FF6FB5, #FF9478);
             color: white;
             border-color: #FF6FB5;
             box-shadow: 0 4px 15px rgba(255,111,181,0.3);
@@ -241,7 +238,7 @@
         }
 
         .itinerary-item.current {
-            border: 2px solid #FF6FB5;
+            border: 2px solid;
             transform: scale(1.02);
             box-shadow: 0 8px 25px rgba(255,111,181,0.2);
         }
@@ -268,7 +265,6 @@
         }
 
         .alarm-icon {
-            color: #FF6FB5;
             font-size: 10px;
         }
 
@@ -301,7 +297,6 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #FF6FB5, #FF9478);
             color: white;
             border: none;
             padding: 16px 24px;
@@ -316,7 +311,6 @@
 
         .calendar-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(255,111,181,0.4);
         }
 
         /* Modal */
@@ -619,6 +613,75 @@
             };
 
             bg.style.background = backgrounds[hour] || backgrounds[12];
+            
+            // Update accent colors based on time
+            updateAccentColors(hour);
+        }
+
+        // Update accent colors based on time
+        function updateAccentColors(hour) {
+            const accentColors = {
+                5: { primary: '#FF6FB5', secondary: '#FF9478' }, // Early morning - pink
+                6: { primary: '#FF6FB5', secondary: '#FF9478' },
+                7: { primary: '#FFB347', secondary: '#FFA500' }, // Morning - orange
+                8: { primary: '#FFB347', secondary: '#FFA500' },
+                9: { primary: '#87CEEB', secondary: '#4A90E2' }, // Caribbean - blue
+                10: { primary: '#87CEEB', secondary: '#4A90E2' },
+                11: { primary: '#87CEEB', secondary: '#4A90E2' },
+                12: { primary: '#FFB347', secondary: '#FFA500' }, // Golden hour - gold
+                13: { primary: '#FFB347', secondary: '#FFA500' },
+                14: { primary: '#FFB347', secondary: '#FFA500' },
+                15: { primary: '#FF6B6B', secondary: '#FF8E8E' }, // Sunset - red
+                16: { primary: '#FF6B6B', secondary: '#FF8E8E' },
+                17: { primary: '#FF6B6B', secondary: '#FF8E8E' },
+                18: { primary: '#9B59B6', secondary: '#8E44AD' }, // Evening - purple
+                19: { primary: '#9B59B6', secondary: '#8E44AD' },
+                20: { primary: '#34495E', secondary: '#2C3E50' }, // Night - dark blue
+                21: { primary: '#34495E', secondary: '#2C3E50' },
+                22: { primary: '#34495E', secondary: '#2C3E50' },
+                23: { primary: '#34495E', secondary: '#2C3E50' },
+                0: { primary: '#34495E', secondary: '#2C3E50' },
+                1: { primary: '#34495E', secondary: '#2C3E50' },
+                2: { primary: '#34495E', secondary: '#2C3E50' },
+                3: { primary: '#34495E', secondary: '#2C3E50' },
+                4: { primary: '#34495E', secondary: '#2C3E50' }
+            };
+
+            const colors = accentColors[hour] || accentColors[12];
+            
+            // Update countdown boxes
+            document.querySelectorAll('.countdown-box').forEach(box => {
+                box.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
+            });
+            
+            // Update calendar button
+            const calendarBtn = document.querySelector('.calendar-button');
+            if (calendarBtn) {
+                calendarBtn.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
+            }
+            
+            // Update accent line
+            const accentLine = document.querySelector('.accent-line');
+            if (accentLine) {
+                accentLine.style.background = `linear-gradient(90deg, ${colors.primary}, ${colors.secondary})`;
+            }
+            
+            // Update active day button
+            const activeDayBtn = document.querySelector('.day-button.active');
+            if (activeDayBtn) {
+                activeDayBtn.style.background = `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`;
+            }
+            
+            // Update current activity border
+            const currentActivity = document.querySelector('.itinerary-item.current');
+            if (currentActivity) {
+                currentActivity.style.borderColor = colors.primary;
+            }
+            
+            // Update alarm icon color
+            document.querySelectorAll('.alarm-icon').forEach(icon => {
+                icon.style.color = colors.primary;
+            });
         }
 
         // Day selection
