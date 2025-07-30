@@ -53,6 +53,26 @@
             letter-spacing: 6px;
             margin-bottom: 16px;
             font-family: 'Times New Roman', serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave-text {
+            background: linear-gradient(45deg, #4A90E2, #87CEEB, #B0E0E6, #4A90E2);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero-subtitle {
@@ -361,8 +381,8 @@
         <!-- Hero Section -->
         <div class="hero-section">
             <div class="hero-subtitle">Welcome to</div>
-            <div class="hero-title">FIGURE EIGHT</div>
-            <div class="hero-title">ISLAND</div>
+            <div class="hero-title wave-text">FIGURE EIGHT</div>
+            <div class="hero-title wave-text">ISLAND</div>
             <div class="accent-line"></div>
             <div class="trip-type">Girls' Beach Trip</div>
         </div>
@@ -461,7 +481,8 @@
             ],
             // Thursday, Aug 7
             [
-                { time: "7:00 AM", activity: "Water aerobics with Kak", icon: "🏊", color: "#4A90E2" },
+                { time: "7:00 AM", activity: "WAKE UP AT THE CRACK", icon: "🛏️", color: "#FF6FB5" },
+                { time: "8:00 AM", activity: "Water aerobics with Kak", icon: "🏊", color: "#4A90E2" },
                 { time: "10:00 AM", activity: "Change & SHOPPP", icon: "🛍️", color: "#FF6FB5" },
                 { time: "12:30 PM", activity: "Lunch at DOCKSIDE", icon: "🍽️", color: "#FF9478" },
                 { time: "2:00 PM", activity: "More shopping or pool", icon: "🏊", color: "#4A90E2" },
@@ -595,7 +616,7 @@
                 item.innerHTML = `
                     <div class="time-column">
                         <div class="time">${activity.time}</div>
-                        ${isWakeUp ? '<div class="alarm-hint"><span class="alarm-icon">⏰</span>Tap to set alarm</div>' : ''}
+                        ${isWakeUp ? '<div class="alarm-hint"><span class="alarm-icon">⏰</span>Set Alarm</div>' : ''}
                     </div>
                     <div class="icon-container" style="background: ${activity.color}">
                         ${activity.icon}
@@ -612,6 +633,16 @@
             const now = new Date();
             const currentHour = now.getHours();
             const currentMinute = now.getMinutes();
+            
+            // Check if we're in the trip period (Aug 5-9, 2025)
+            const tripStart = new Date('2025-08-05');
+            const tripEnd = new Date('2025-08-09');
+            const currentDate = new Date();
+            
+            // Only highlight if we're actually during the trip dates
+            if (currentDate < tripStart || currentDate > tripEnd) {
+                return false;
+            }
             
             const timeMatch = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/);
             if (!timeMatch) return false;
