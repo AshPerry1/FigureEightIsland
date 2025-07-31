@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -494,6 +493,370 @@
             cursor: pointer;
         }
 
+        /* Current Activity Preview */
+        .current-activity-preview {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .current-activity-title {
+            font-size: 14px;
+            color: #7F8C8D;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .current-activity-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .current-activity-time {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF6FB5;
+        }
+
+        .current-activity-text {
+            font-size: 16px;
+            color: #2C3E50;
+            font-weight: 500;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin: 30px 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .map-title {
+            font-size: 24px;
+            font-weight: 300;
+            color: #2C3E50;
+            margin-bottom: 8px;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .map-subtitle {
+            font-size: 14px;
+            color: #7F8C8D;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .map-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .map-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .route-stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6FB5;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7F8C8D;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .route-progress {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E8F4FD;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF6FB5, #FF9478);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: #7F8C8D;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            border: 2px dashed #E8F4FD;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .map-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .map-message {
+            font-size: 18px;
+            color: #2C3E50;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .route-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .highlight-item {
+            padding: 12px 16px;
+            background: white;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #2C3E50;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 3px solid #FF6FB5;
+        }
+
+        .highlight-item:nth-child(2) {
+            border-left-color: #4A90E2;
+        }
+
+        .highlight-item:nth-child(3) {
+            border-left-color: #2ECC71;
+        }
+
+        /* Weather Section */
+        .weather-section {
+            margin: 30px 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .weather-title {
+            font-size: 24px;
+            font-weight: 300;
+            color: #2C3E50;
+            margin-bottom: 8px;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .weather-subtitle {
+            font-size: 14px;
+            color: #7F8C8D;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .weather-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .current-weather {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #F0F8FF 0%, #FFFFFF 100%);
+            border-radius: 15px;
+            border-left: 4px solid #4A90E2;
+        }
+
+        .weather-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .weather-temp {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2C3E50;
+            margin-bottom: 5px;
+        }
+
+        .weather-condition {
+            font-size: 16px;
+            color: #7F8C8D;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #7F8C8D;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            color: #2C3E50;
+            font-weight: 600;
+        }
+
+        .forecast-container {
+            padding: 20px;
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFFFFF 100%);
+            border-radius: 15px;
+            border-left: 4px solid #FF6FB5;
+        }
+
+        .forecast-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .forecast-days {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .forecast-day {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .forecast-date {
+            font-size: 12px;
+            color: #7F8C8D;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .forecast-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .forecast-temp {
+            font-size: 14px;
+            color: #2C3E50;
+            font-weight: 600;
+        }
+
+        .beach-conditions {
+            padding: 20px;
+            background: linear-gradient(135deg, #F0FFF0 0%, #FFFFFF 100%);
+            border-radius: 15px;
+            border-left: 4px solid #2ECC71;
+        }
+
+        .conditions-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .condition-item {
+            text-align: center;
+            padding: 15px 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .condition-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .condition-label {
+            font-size: 12px;
+            color: #7F8C8D;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .condition-value {
+            font-size: 14px;
+            color: #2C3E50;
+            font-weight: 600;
+        }
+
         /* Responsive */
         @media (max-width: 480px) {
             .container {
@@ -543,6 +906,11 @@
             </div>
         </div>
 
+        <!-- Current Activity Preview -->
+        <div class="current-activity-preview" style="display: none; margin: 20px; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
         <!-- Day Navigation -->
         <div class="day-navigation">
             <button class="day-button active" onclick="selectDay(0)">Tuesday, Aug 5</button>
@@ -557,10 +925,117 @@
             <!-- Itinerary items will be populated by JavaScript -->
         </div>
 
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="map-title">🚗 Road Trip to Paradise</div>
+            <div class="map-subtitle">Birmingham, AL → Figure Eight Island, NC</div>
+            
+            <div class="map-container">
+                <div class="map-info">
+                    <div class="route-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="distance">--</div>
+                            <div class="stat-label">MILES</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="duration">--</div>
+                            <div class="stat-label">HOURS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="eta">--</div>
+                            <div class="stat-label">ETA</div>
+                        </div>
+                    </div>
+                    
+                    <div class="route-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Loading route...</div>
+                    </div>
+                </div>
+                
+                <div class="map-placeholder">
+                    <div class="map-icon">🗺️</div>
+                    <div class="map-message">Interactive route coming soon!</div>
+                    <div class="route-highlights">
+                        <div class="highlight-item">📍 Birmingham, AL</div>
+                        <div class="highlight-item">🛣️ I-65 North</div>
+                        <div class="highlight-item">🌊 Figure Eight Island, NC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Plus Button -->
         <button class="plus-button" onclick="showPlusModal()">
             +
         </button>
+
+        <!-- Weather Section -->
+        <div class="weather-section">
+            <div class="weather-title">🌤️ Figure Eight Island Weather</div>
+            <div class="weather-subtitle">Live conditions for your beach trip</div>
+            
+            <div class="weather-container">
+                <div class="current-weather">
+                    <div class="weather-icon" id="weatherIcon">🌤️</div>
+                    <div class="weather-temp" id="weatherTemp">--°F</div>
+                    <div class="weather-condition" id="weatherCondition">Loading...</div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Feels like</span>
+                            <span class="detail-value" id="feelsLike">--°F</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value" id="windSpeed">-- mph</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">UV Index</span>
+                            <span class="detail-value" id="uvIndex">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="forecast-container">
+                    <div class="forecast-title">5-Day Forecast</div>
+                    <div class="forecast-days" id="forecastDays">
+                        <!-- Forecast days will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="beach-conditions">
+                    <div class="conditions-title">🏖️ Beach Conditions</div>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <div class="condition-icon">🌊</div>
+                            <div class="condition-label">Water Temp</div>
+                            <div class="condition-value" id="waterTemp">--°F</div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🏄</div>
+                            <div class="condition-label">Surf Height</div>
+                            <div class="condition-value" id="surfHeight">-- ft</div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🌅</div>
+                            <div class="condition-label">Sunset</div>
+                            <div class="condition-value" id="sunset">--:--</div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🌊</div>
+                            <div class="condition-label">Tide</div>
+                            <div class="condition-value" id="tideStatus">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Plus Modal -->
         <div class="modal" id="plusModal">
@@ -729,7 +1204,13 @@
             updateCountdown();
             updateDynamicBackground();
             renderItinerary();
+            updateCurrentActivity(); // Initial call
+            updateMapData(); // Initial map data
+            updateWeatherData(); // Initial weather data
             setInterval(updateCountdown, 1000);
+            setInterval(updateCurrentActivity, 60000); // Update current activity every minute
+            setInterval(updateMapData, 300000); // Update map data every 5 minutes
+            setInterval(updateWeatherData, 300000); // Update weather data every 5 minutes
             setInterval(updateDynamicBackground, 60000); // Update background every minute
         });
 
@@ -750,10 +1231,24 @@
                 document.getElementById('minutes').textContent = minutes;
                 document.getElementById('seconds').textContent = seconds;
             } else {
+                const now = new Date();
+                const tripEnd = new Date('2025-08-09T23:59:59');
+                
+                if (now > tripEnd) {
+                    // Trip is over
+                    document.getElementById('countdown-title').textContent = 'Until next time!';
+                } else {
+                    // Trip has started but not over
+                    document.getElementById('countdown-title').textContent = 'Time to hit the road!';
+                }
+                
                 document.getElementById('days').textContent = '0';
                 document.getElementById('hours').textContent = '0';
                 document.getElementById('minutes').textContent = '0';
                 document.getElementById('seconds').textContent = '0';
+                
+                // Update the current activity section to show what's happening now
+                updateCurrentActivity();
             }
         }
 
@@ -914,6 +1409,154 @@
                 
                 container.appendChild(item);
             });
+        }
+
+        // Update weather data
+        function updateWeatherData() {
+            // Simulated weather data for Figure Eight Island
+            const weatherData = {
+                current: {
+                    temp: 82,
+                    feelsLike: 85,
+                    condition: "Partly Cloudy",
+                    icon: "⛅",
+                    humidity: 75,
+                    windSpeed: 8,
+                    uvIndex: 7
+                },
+                forecast: [
+                    { day: "Today", temp: 82, icon: "⛅", condition: "Partly Cloudy" },
+                    { day: "Tomorrow", temp: 84, icon: "☀️", condition: "Sunny" },
+                    { day: "Thu", temp: 86, icon: "☀️", condition: "Sunny" },
+                    { day: "Fri", temp: 83, icon: "⛅", condition: "Partly Cloudy" },
+                    { day: "Sat", temp: 81, icon: "🌤️", condition: "Mostly Sunny" }
+                ],
+                beach: {
+                    waterTemp: 78,
+                    surfHeight: 2.5,
+                    sunset: "7:45 PM",
+                    tideStatus: "Low Tide"
+                }
+            };
+            
+            // Update current weather
+            document.getElementById('weatherIcon').textContent = weatherData.current.icon;
+            document.getElementById('weatherTemp').textContent = `${weatherData.current.temp}°F`;
+            document.getElementById('weatherCondition').textContent = weatherData.current.condition;
+            document.getElementById('feelsLike').textContent = `${weatherData.current.feelsLike}°F`;
+            document.getElementById('humidity').textContent = `${weatherData.current.humidity}%`;
+            document.getElementById('windSpeed').textContent = `${weatherData.current.windSpeed} mph`;
+            document.getElementById('uvIndex').textContent = weatherData.current.uvIndex;
+            
+            // Update beach conditions
+            document.getElementById('waterTemp').textContent = `${weatherData.beach.waterTemp}°F`;
+            document.getElementById('surfHeight').textContent = `${weatherData.beach.surfHeight} ft`;
+            document.getElementById('sunset').textContent = weatherData.beach.sunset;
+            document.getElementById('tideStatus').textContent = weatherData.beach.tideStatus;
+            
+            // Update forecast
+            const forecastContainer = document.getElementById('forecastDays');
+            forecastContainer.innerHTML = '';
+            
+            weatherData.forecast.forEach(day => {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'forecast-day';
+                dayElement.innerHTML = `
+                    <div class="forecast-date">${day.day}</div>
+                    <div class="forecast-icon">${day.icon}</div>
+                    <div class="forecast-temp">${day.temp}°</div>
+                `;
+                forecastContainer.appendChild(dayElement);
+            });
+        }
+
+        // Update map data
+        function updateMapData() {
+            // Route data (Birmingham, AL to Figure Eight Island, NC)
+            const routeData = {
+                distance: 650, // miles
+                duration: 10.5, // hours
+                startPoint: "Birmingham, AL",
+                endPoint: "Figure Eight Island, NC",
+                route: "I-65 N → I-85 N → I-40 E"
+            };
+            
+            // Calculate ETA based on current time
+            const now = new Date();
+            const eta = new Date(now.getTime() + (routeData.duration * 60 * 60 * 1000));
+            const etaString = eta.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            
+            // Update stats
+            document.getElementById('distance').textContent = routeData.distance;
+            document.getElementById('duration').textContent = routeData.duration;
+            document.getElementById('eta').textContent = etaString;
+            
+            // Calculate progress based on trip start
+            const tripStart = new Date('2025-08-05T06:00:00');
+            const progress = Math.max(0, Math.min(100, ((now - tripStart) / (24 * 60 * 60 * 1000)) * 100));
+            
+            // Update progress bar
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            if (progressFill && progressText) {
+                progressFill.style.width = `${progress}%`;
+                
+                if (now < tripStart) {
+                    progressText.textContent = `Departure in ${Math.ceil((tripStart - now) / (24 * 60 * 60 * 1000))} days`;
+                } else if (progress > 100) {
+                    progressText.textContent = "Arrived at paradise! 🏖️";
+                } else {
+                    progressText.textContent = `${Math.round(progress)}% to paradise`;
+                }
+            }
+        }
+
+        // Update current activity display
+        function updateCurrentActivity() {
+            const now = new Date();
+            const tripStart = new Date('2025-08-05');
+            const tripEnd = new Date('2025-08-09');
+            
+            // Only show current activity if we're during the trip
+            if (now >= tripStart && now <= tripEnd) {
+                const currentDay = Math.floor((now - tripStart) / (1000 * 60 * 60 * 24));
+                const activities = tripData[currentDay];
+                
+                if (activities) {
+                    const currentActivity = activities.find(activity => isCurrentTimeActivity(activity.time));
+                    if (currentActivity) {
+                        // Update the current activity preview section
+                        const previewSection = document.querySelector('.current-activity-preview');
+                        if (previewSection) {
+                            previewSection.style.display = 'block';
+                            previewSection.innerHTML = `
+                                <div class="current-activity-title">NOW HAPPENING:</div>
+                                <div class="current-activity-content">
+                                    <div class="current-activity-time">${currentActivity.time}</div>
+                                    <div class="current-activity-text">${currentActivity.activity}</div>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        // Hide preview if no current activity
+                        const previewSection = document.querySelector('.current-activity-preview');
+                        if (previewSection) {
+                            previewSection.style.display = 'none';
+                        }
+                    }
+                }
+            } else {
+                // Hide preview if not during trip
+                const previewSection = document.querySelector('.current-activity-preview');
+                if (previewSection) {
+                    previewSection.style.display = 'none';
+                }
+            }
         }
 
         // Check if activity is current
