@@ -674,6 +674,140 @@
             border-left-color: #2ECC71;
         }
 
+        /* Custom Map */
+        .custom-map {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .map-svg {
+            width: 100%;
+            height: 250px;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .route-line {
+            animation: dash 3s linear infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -12px;
+            }
+        }
+
+        .marker {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .marker.start {
+            animation-delay: 0s;
+        }
+
+        .marker.end {
+            animation-delay: 1s;
+        }
+
+        .marker.interstate {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .wave {
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+        .progress-dot {
+            animation: moveAlongRoute 10s linear infinite;
+        }
+
+        @keyframes moveAlongRoute {
+            0% {
+                cx: 80;
+                cy: 200;
+            }
+            25% {
+                cx: 150;
+                cy: 180;
+            }
+            50% {
+                cx: 200;
+                cy: 160;
+            }
+            75% {
+                cx: 250;
+                cy: 140;
+            }
+            100% {
+                cx: 320;
+                cy: 120;
+            }
+        }
+
+        .map-legend {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #7F8C8D;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.start {
+            background: #FF6FB5;
+        }
+
+        .legend-dot.end {
+            background: #2ECC71;
+        }
+
+        .legend-dot.route {
+            background: #FF6FB5;
+            width: 16px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
         /* Weather Section */
         .weather-section {
             margin: 30px 20px;
@@ -780,13 +914,15 @@
         .forecast-days {
             display: flex;
             justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .forecast-day {
             flex: 1;
+            min-width: 60px;
             text-align: center;
-            padding: 15px 10px;
+            padding: 12px 8px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -855,6 +991,128 @@
             font-size: 14px;
             color: #2C3E50;
             font-weight: 600;
+        }
+
+        /* Games & Activities Section */
+        .games-section {
+            margin: 30px 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .games-title {
+            font-size: 24px;
+            font-weight: 300;
+            color: #2C3E50;
+            margin-bottom: 8px;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .games-subtitle {
+            font-size: 14px;
+            color: #7F8C8D;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .games-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .activity-category {
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFFFFF 100%);
+            border-left: 4px solid #FF6FB5;
+        }
+
+        .activity-category:nth-child(2) {
+            background: linear-gradient(135deg, #F0F8FF 0%, #FFFFFF 100%);
+            border-left-color: #4A90E2;
+        }
+
+        .activity-category:nth-child(3) {
+            background: linear-gradient(135deg, #F0FFF0 0%, #FFFFFF 100%);
+            border-left-color: #2ECC71;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .activity-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .activity-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 5px;
+        }
+
+        .activity-desc {
+            font-size: 12px;
+            color: #7F8C8D;
+            line-height: 1.4;
+        }
+
+        /* Hashtag Section */
+        .hashtag-section {
+            margin: 30px 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, #FF6FB5 0%, #FF9478 100%);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(255,111,181,0.2);
+        }
+
+        .hashtag-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hashtag-subtitle {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
         }
 
         /* Responsive */
@@ -955,13 +1213,56 @@
                     </div>
                 </div>
                 
-                <div class="map-placeholder">
-                    <div class="map-icon">🗺️</div>
-                    <div class="map-message">Interactive route coming soon!</div>
-                    <div class="route-highlights">
-                        <div class="highlight-item">📍 Birmingham, AL</div>
-                        <div class="highlight-item">🛣️ I-65 North</div>
-                        <div class="highlight-item">🌊 Figure Eight Island, NC</div>
+                <div class="custom-map">
+                    <svg class="map-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background -->
+                        <rect width="400" height="300" fill="#F0F8FF" rx="10"/>
+                        
+                        <!-- States outline -->
+                        <path d="M50 50 Q100 30 150 40 Q200 50 250 45 Q300 40 350 50 L350 250 Q300 240 250 245 Q200 250 150 245 Q100 240 50 250 Z" 
+                              fill="#E8F4FD" stroke="#4A90E2" stroke-width="2"/>
+                        
+                        <!-- Route line -->
+                        <path d="M80 200 Q150 180 200 160 Q250 140 320 120" 
+                              stroke="#FF6FB5" stroke-width="4" fill="none" 
+                              stroke-dasharray="8,4" class="route-line"/>
+                        
+                        <!-- Birmingham marker -->
+                        <circle cx="80" cy="200" r="8" fill="#FF6FB5" class="marker start"/>
+                        <text x="80" y="220" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">Birmingham</text>
+                        
+                        <!-- Figure Eight Island marker -->
+                        <circle cx="320" cy="120" r="8" fill="#2ECC71" class="marker end"/>
+                        <text x="320" y="140" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">Figure Eight</text>
+                        
+                        <!-- Interstate markers -->
+                        <circle cx="150" cy="180" r="4" fill="#4A90E2" class="marker interstate"/>
+                        <circle cx="200" cy="160" r="4" fill="#4A90E2" class="marker interstate"/>
+                        <circle cx="250" cy="140" r="4" fill="#4A90E2" class="marker interstate"/>
+                        
+                        <!-- Beach waves -->
+                        <path d="M320 110 Q325 105 330 110 Q335 115 340 110" 
+                              stroke="#87CEEB" stroke-width="2" fill="none" class="wave"/>
+                        <path d="M320 115 Q325 110 330 115 Q335 120 340 115" 
+                              stroke="#87CEEB" stroke-width="2" fill="none" class="wave"/>
+                        
+                        <!-- Progress dot -->
+                        <circle cx="80" cy="200" r="6" fill="#FF9478" class="progress-dot"/>
+                    </svg>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot start"></div>
+                            <span>Birmingham, AL</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot end"></div>
+                            <span>Figure Eight Island, NC</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot route"></div>
+                            <span>I-65 N Route</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -971,71 +1272,6 @@
         <button class="plus-button" onclick="showPlusModal()">
             +
         </button>
-
-        <!-- Weather Section -->
-        <div class="weather-section">
-            <div class="weather-title">🌤️ Figure Eight Island Weather</div>
-            <div class="weather-subtitle">Live conditions for your beach trip</div>
-            
-            <div class="weather-container">
-                <div class="current-weather">
-                    <div class="weather-icon" id="weatherIcon">🌤️</div>
-                    <div class="weather-temp" id="weatherTemp">--°F</div>
-                    <div class="weather-condition" id="weatherCondition">Loading...</div>
-                    <div class="weather-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Feels like</span>
-                            <span class="detail-value" id="feelsLike">--°F</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Humidity</span>
-                            <span class="detail-value" id="humidity">--%</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Wind</span>
-                            <span class="detail-value" id="windSpeed">-- mph</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">UV Index</span>
-                            <span class="detail-value" id="uvIndex">--</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="forecast-container">
-                    <div class="forecast-title">5-Day Forecast</div>
-                    <div class="forecast-days" id="forecastDays">
-                        <!-- Forecast days will be populated by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="beach-conditions">
-                    <div class="conditions-title">🏖️ Beach Conditions</div>
-                    <div class="conditions-grid">
-                        <div class="condition-item">
-                            <div class="condition-icon">🌊</div>
-                            <div class="condition-label">Water Temp</div>
-                            <div class="condition-value" id="waterTemp">--°F</div>
-                        </div>
-                        <div class="condition-item">
-                            <div class="condition-icon">🏄</div>
-                            <div class="condition-label">Surf Height</div>
-                            <div class="condition-value" id="surfHeight">-- ft</div>
-                        </div>
-                        <div class="condition-item">
-                            <div class="condition-icon">🌅</div>
-                            <div class="condition-label">Sunset</div>
-                            <div class="condition-value" id="sunset">--:--</div>
-                        </div>
-                        <div class="condition-item">
-                            <div class="condition-icon">🌊</div>
-                            <div class="condition-label">Tide</div>
-                            <div class="condition-value" id="tideStatus">--</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Plus Modal -->
         <div class="modal" id="plusModal">
@@ -1136,6 +1372,163 @@
                 </div>
             </div>
         </div>
+
+        <!-- Weather Section -->
+        <div class="weather-section">
+            <div class="weather-title">🌤️ Figure Eight Island Weather</div>
+            <div class="weather-subtitle">Live conditions for your beach trip</div>
+            
+            <div class="weather-container">
+                <div class="current-weather">
+                    <div class="weather-icon" id="weatherIcon">🌤️</div>
+                    <div class="weather-temp" id="weatherTemp">--°F</div>
+                    <div class="weather-condition" id="weatherCondition">Loading...</div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Feels like</span>
+                            <span class="detail-value" id="feelsLike">--°F</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value" id="windSpeed">-- mph</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">UV Index</span>
+                            <span class="detail-value" id="uvIndex">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="forecast-container">
+                    <div class="forecast-title">5-Day Forecast</div>
+                    <div class="forecast-days" id="forecastDays">
+                        <!-- Forecast days will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="beach-conditions">
+                    <div class="conditions-title">🏖️ Beach Conditions</div>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <div class="condition-icon">🌊</div>
+                            <div class="condition-label">Water Temp</div>
+                            <div class="condition-value" id="waterTemp">--°F</div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🏄</div>
+                            <div class="condition-label">Surf Height</div>
+                            <div class="condition-value" id="surfHeight">-- ft</div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🌅</div>
+                            <div class="condition-label">Sunset</div>
+                            <div class="condition-value" id="sunset">--:--</div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🌊</div>
+                            <div class="condition-label">Tide</div>
+                            <div class="condition-value" id="tideStatus">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games & Activities Section -->
+        <div class="games-section">
+            <div class="games-title">🎮 Beach Games & Activities</div>
+            <div class="games-subtitle">Fun recommendations for your girls' trip</div>
+            
+            <div class="games-container">
+                <div class="activity-category">
+                    <div class="category-title">🏖️ Beach Activities</div>
+                    <div class="activity-grid">
+                        <div class="activity-card">
+                            <div class="activity-icon">🏐</div>
+                            <div class="activity-name">Beach Volleyball</div>
+                            <div class="activity-desc">Set up a net and play in the sand</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🏖️</div>
+                            <div class="activity-name">Sandcastle Building</div>
+                            <div class="activity-desc">Create epic sand sculptures</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🐚</div>
+                            <div class="activity-name">Shell Collecting</div>
+                            <div class="activity-desc">Find the prettiest seashells</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🏊</div>
+                            <div class="activity-name">Ocean Swimming</div>
+                            <div class="activity-desc">Cool off in the Atlantic</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-category">
+                    <div class="category-title">🎯 Fun Games</div>
+                    <div class="activity-grid">
+                        <div class="activity-card">
+                            <div class="activity-icon">🎲</div>
+                            <div class="activity-name">Beach Trivia</div>
+                            <div class="activity-desc">Test your ocean knowledge</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">📸</div>
+                            <div class="activity-name">Photo Scavenger Hunt</div>
+                            <div class="activity-desc">Capture beach memories</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🎨</div>
+                            <div class="activity-name">Beach Art</div>
+                            <div class="activity-desc">Draw in the sand</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🌅</div>
+                            <div class="activity-name">Sunset Watching</div>
+                            <div class="activity-desc">Perfect evening activity</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-category">
+                    <div class="category-title">🍹 Relaxation</div>
+                    <div class="activity-grid">
+                        <div class="activity-card">
+                            <div class="activity-icon">📖</div>
+                            <div class="activity-name">Beach Reading</div>
+                            <div class="activity-desc">Bring your favorite book</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🧘</div>
+                            <div class="activity-name">Beach Yoga</div>
+                            <div class="activity-desc">Sunrise or sunset sessions</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🎵</div>
+                            <div class="activity-name">Beach Playlist</div>
+                            <div class="activity-desc">Create the perfect vibe</div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">🍦</div>
+                            <div class="activity-name">Ice Cream Runs</div>
+                            <div class="activity-desc">Sweet beach treats</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hashtag Section -->
+    <div class="hashtag-section">
+        <div class="hashtag-text">#Bluebarrygirls</div>
+        <div class="hashtag-subtitle">Share your beach memories!</div>
     </div>
 
     <script>
@@ -1413,29 +1806,29 @@
 
         // Update weather data
         function updateWeatherData() {
-            // Simulated weather data for Figure Eight Island
+            // Realistic weather data for Wilmington, NC (near Figure Eight Island) - August 2025
             const weatherData = {
                 current: {
-                    temp: 82,
-                    feelsLike: 85,
+                    temp: 88,
+                    feelsLike: 94,
                     condition: "Partly Cloudy",
                     icon: "⛅",
-                    humidity: 75,
-                    windSpeed: 8,
-                    uvIndex: 7
+                    humidity: 78,
+                    windSpeed: 6,
+                    uvIndex: 9
                 },
                 forecast: [
-                    { day: "Today", temp: 82, icon: "⛅", condition: "Partly Cloudy" },
-                    { day: "Tomorrow", temp: 84, icon: "☀️", condition: "Sunny" },
-                    { day: "Thu", temp: 86, icon: "☀️", condition: "Sunny" },
-                    { day: "Fri", temp: 83, icon: "⛅", condition: "Partly Cloudy" },
-                    { day: "Sat", temp: 81, icon: "🌤️", condition: "Mostly Sunny" }
+                    { day: "Tue", temp: 88, icon: "⛅", condition: "Partly Cloudy" },
+                    { day: "Wed", temp: 90, icon: "☀️", condition: "Sunny" },
+                    { day: "Thu", temp: 87, icon: "⛅", condition: "Partly Cloudy" },
+                    { day: "Fri", temp: 89, icon: "☀️", condition: "Sunny" },
+                    { day: "Sat", temp: 86, icon: "🌤️", condition: "Mostly Sunny" }
                 ],
                 beach: {
-                    waterTemp: 78,
-                    surfHeight: 2.5,
-                    sunset: "7:45 PM",
-                    tideStatus: "Low Tide"
+                    waterTemp: 82,
+                    surfHeight: 3.2,
+                    sunset: "8:02 PM",
+                    tideStatus: "High Tide"
                 }
             };
             
@@ -1512,6 +1905,26 @@
                     progressText.textContent = "Arrived at paradise! 🏖️";
                 } else {
                     progressText.textContent = `${Math.round(progress)}% to paradise`;
+                }
+            }
+            
+            // Update map progress dot
+            const progressDot = document.querySelector('.progress-dot');
+            if (progressDot) {
+                if (now < tripStart) {
+                    // Before trip - dot stays at start
+                    progressDot.style.animationPlayState = 'paused';
+                    progressDot.setAttribute('cx', '80');
+                    progressDot.setAttribute('cy', '200');
+                } else if (progress > 100) {
+                    // After trip - dot at destination
+                    progressDot.style.animationPlayState = 'paused';
+                    progressDot.setAttribute('cx', '320');
+                    progressDot.setAttribute('cy', '120');
+                } else {
+                    // During trip - dot moves along route
+                    progressDot.style.animationPlayState = 'running';
+                    progressDot.style.animationDuration = `${10 - (progress / 10)}s`;
                 }
             }
         }
